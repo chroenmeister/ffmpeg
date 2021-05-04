@@ -54,4 +54,4 @@ s24le           PCM signed 24-bit little-endian
 Video nehmen, Ton wegschmeißen, neuer Ton dazu
 ffmpeg -i input.mp4 -i input.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4
 
-
+ffmpeg -i AA031201.MXF -c:v prores_ks -profile:v 0 -c:a copy test.mov
