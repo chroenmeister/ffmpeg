@@ -1,6 +1,9 @@
 # ffmpeg
 useful ffmpeg commands for producers every life
 
+Alle wavs zu mp3
+find *.wav -exec ffmpeg -i {} -map 0:a:0 -b:a 192k {}.mp3 \;
+
 Video zu mp4 aac H264
 
 ffmpeg -i input.XXX -vcodec libx264 -acodec aac output.mp4 (0.2 x original)
