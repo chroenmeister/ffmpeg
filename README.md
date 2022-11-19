@@ -2,14 +2,12 @@
 useful ffmpeg commands for producers every life
 
 Alle wavs zu mp3
-find *.wav -exec ffmpeg -i {} -map 0:a:0 -b:a 192k {}.mp3 \;
+find *.wav -exec ffmpeg -i {} -map 0:a:0 -b:a 320k {}_2ndX_320kbps.mp3 \;
 
 Video zu mp4 aac H264
-
 ffmpeg -i input.XXX -vcodec libx264 -acodec aac output.mp4 (0.2 x original)
 
 Video zu mp4 aac H264 720p
-
 ffmpeg -i input.XXX -vf scale=-1:720 -c:v libx264 -crf 0 -preset veryslow -c:a copy MyMovie_720p.mkv
 
 
@@ -59,4 +57,8 @@ ffmpeg -i input.mp4 -i input.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output
 
 ffmpeg -i AA031201.MXF -c:v prores_ks -profile:v 0 -c:a copy test.mov
 
+Convert 96k/24 zu 48k/16
+find *.wav -exec ffmpeg -i {} -map 0:a:0 -sample_fmt s16 -ar 48000 4thX_{} \;
+
+Youtube Video zu mp3
 youtube-dl -i --extract-audio --audio-format mp3 --audio-quality 0 LINK
